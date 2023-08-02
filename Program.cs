@@ -11,10 +11,10 @@
 [3, 4, 1, 77, 65] => 77 - 1 = 76
 */
 
-int[] Array = GetArray(6, -10, 10);
+int[] Array = GetArray(10, -100, 100);
 Console.WriteLine($"[{String.Join(',', Array)}]");
-int sum = GetSum(Array);
-Console.WriteLine($"Сумма элементов на нечётных индексах: {sum}");
+int dif = GetDiff(Array);
+Console.WriteLine($"Разница между max и min: {dif}");
 
 int[] GetArray(int size, int MinVal, int MaxVal)
 {
@@ -25,13 +25,16 @@ int[] GetArray(int size, int MinVal, int MaxVal)
     }
     return Array;
 }
-int GetSum(int[] Array)
+int GetDiff(int[] Array)
 {
-    int summ = 0;
-    for (int i = 1; i < Array.Length; i += 2)
+    int max = -100;
+    int min = 100;
+    foreach (int item in Array)
     {
-        summ += Array[i];
+        max = max < item? item : max;
+        min = min > item? item : min;
     }
-    return summ;
+    int dif = max - min;
+    return dif;
 }
 
