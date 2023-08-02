@@ -3,6 +3,31 @@
 Напишите программу, которая покажет количество чётных чисел в массиве.
 [345, 897, 568, 234] -> 2
 
+int[] Array = GetArray(5, 100, 999);
+Console.WriteLine($"[{String.Join(',', Array)}]");
+int Even = GetEven(Array);
+Console.WriteLine($"Количество чётных: {Even}");
+
+int[] GetArray(int size, int MinVal, int MaxVal)
+{
+    int[] Array = new int[size];
+    for (int i = 0; i < size; i++)
+    {
+        Array[i] = new Random().Next(MinVal, MaxVal + 1);
+    }
+    return Array;
+}
+int GetEven(int[] Array)
+{
+    int count = 0;
+    foreach (int item in Array)
+    {
+        count += item % 2 == 0 ? 1 : 0;
+    }
+    return count;
+}
+*/
+/*
 Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных индексах.
 [3, 7, 23, 12] -> 19
 [-4, -6, 89, 6] -> 0
