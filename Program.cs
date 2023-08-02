@@ -11,10 +11,10 @@
 [3, 4, 1, 77, 65] => 77 - 1 = 76
 */
 
-int[] Array = GetArray(5, 100, 999);
+int[] Array = GetArray(6, -10, 10);
 Console.WriteLine($"[{String.Join(',', Array)}]");
-int Even = GetEven(Array);
-Console.WriteLine($"Количество чётных: {Even}");
+int sum = GetSum(Array);
+Console.WriteLine($"Сумма элементов на нечётных индексах: {sum}");
 
 int[] GetArray(int size, int MinVal, int MaxVal)
 {
@@ -25,13 +25,13 @@ int[] GetArray(int size, int MinVal, int MaxVal)
     }
     return Array;
 }
-int GetEven(int[] Array)
+int GetSum(int[] Array)
 {
-    int count = 0;
-    foreach (int item in Array)
+    int summ = 0;
+    for (int i = 1; i < Array.Length; i += 2)
     {
-        count += item % 2 == 0 ? 1 : 0;
+        summ += Array[i];
     }
-    return count;
+    return summ;
 }
 
